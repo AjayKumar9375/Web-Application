@@ -83,6 +83,10 @@ main {
 
 .hero {
   padding: 4rem 1rem 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  align-items: center;
 }
 
 .kicker {
@@ -112,6 +116,27 @@ h3 {
 .intro {
   max-width: 70ch;
   color: var(--muted);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hero-photo {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-photo img {
+  width: min(320px, 80vw);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 28px;
+  border: 1px solid rgba(0, 194, 255, 0.35);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+  background: rgba(15, 17, 21, 0.6);
 }
 
 .hero-actions {
@@ -238,6 +263,10 @@ footer {
 
   .hero {
     padding-top: 2.8rem;
+  }
+
+  .hero-photo img {
+    width: min(260px, 70vw);
   }
 
   .experience-head {
