@@ -30,6 +30,17 @@ body {
   line-height: 1.6;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 122, 24, 0.12), transparent 45%),
+    radial-gradient(circle at 70% 80%, rgba(0, 194, 255, 0.1), transparent 50%);
+  animation: ambientGlow 18s ease-in-out infinite;
+  z-index: -2;
+  pointer-events: none;
+}
+
 .skip-link {
   position: absolute;
   left: 1rem;
@@ -153,11 +164,15 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  animation: fadeUp 700ms ease forwards;
 }
 
 .hero-photo {
   display: flex;
   justify-content: center;
+  animation: fadeUp 700ms ease forwards;
+  animation-delay: 120ms;
+  opacity: 0;
 }
 
 .hero-photo img {
@@ -168,6 +183,7 @@ h3 {
   border: 1px solid rgba(0, 194, 255, 0.35);
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
   background: rgba(15, 17, 21, 0.6);
+  transition: transform 300ms ease, box-shadow 300ms ease;
 }
 
 .hero-actions {
@@ -205,6 +221,7 @@ h3 {
   border-radius: 16px;
   background: linear-gradient(140deg, rgba(33, 39, 53, 0.65), rgba(24, 27, 35, 0.8));
   padding: 1.25rem;
+  transition: transform 250ms ease, border-color 250ms ease;
 }
 
 .skills-grid {
@@ -218,6 +235,7 @@ h3 {
   border-radius: 12px;
   background: rgba(15, 17, 21, 0.5);
   padding: 0.9rem;
+  transition: transform 250ms ease, border-color 250ms ease;
 }
 
 .skill-card p {
@@ -229,6 +247,7 @@ h3 {
   border-radius: 12px;
   background: rgba(15, 17, 21, 0.45);
   padding: 1rem;
+  transition: transform 250ms ease, border-color 250ms ease;
 }
 
 .experience-item + .experience-item {
@@ -254,6 +273,7 @@ h3 {
   border-radius: 12px;
   background: rgba(15, 17, 21, 0.6);
   padding: 1rem;
+  transition: transform 250ms ease, border-color 250ms ease;
 }
 
 ul {
@@ -262,6 +282,67 @@ ul {
 
 a {
   color: var(--accent-2);
+}
+
+.contact-links {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.75rem;
+}
+
+#contact {
+  text-align: center;
+}
+
+.icon-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 194, 255, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  background: rgba(15, 17, 21, 0.5);
+  transition: transform 200ms ease, border-color 200ms ease;
+}
+
+.icon-link svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.icon-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 122, 24, 0.6);
+}
+
+.panel:hover,
+.skill-card:hover,
+.project-card:hover,
+.experience-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 194, 255, 0.45);
+}
+
+.hero-photo img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 footer {
@@ -281,6 +362,29 @@ footer {
   transform: translateY(0);
 }
 
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ambientGlow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(4%, -3%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -290,6 +394,21 @@ footer {
     transition: none;
     transform: none;
     opacity: 1;
+  }
+
+  body::before,
+  .hero-content,
+  .hero-photo {
+    animation: none;
+  }
+
+  .panel,
+  .skill-card,
+  .project-card,
+  .experience-item,
+  .hero-photo img,
+  .icon-link {
+    transition: none;
   }
 }
 
