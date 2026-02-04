@@ -1,0 +1,247 @@
+﻿:root {
+  --bg: #0f1115;
+  --surface: #181b23;
+  --surface-strong: #212735;
+  --text: #f3f4f7;
+  --muted: #b4bccd;
+  --accent: #ff7a18;
+  --accent-2: #00c2ff;
+  --stroke: #2e364a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Archivo", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(50rem 30rem at 90% -10%, rgba(0, 194, 255, 0.15), transparent 60%),
+    radial-gradient(45rem 35rem at -10% 10%, rgba(255, 122, 24, 0.2), transparent 60%),
+    var(--bg);
+  line-height: 1.6;
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: radial-gradient(circle at 2px 2px, #fff 1px, transparent 0);
+  background-size: 28px 28px;
+  z-index: -1;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  backdrop-filter: blur(10px);
+  background: rgba(15, 17, 21, 0.75);
+  border-bottom: 1px solid rgba(0, 194, 255, 0.2);
+}
+
+.brand {
+  font-family: "Space Mono", monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: var(--text);
+}
+
+main {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: 2.2rem 0 4rem;
+}
+
+.hero {
+  padding: 4rem 1rem 2.5rem;
+}
+
+.kicker {
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+h1 {
+  margin: 0.5rem 0 1rem;
+  max-width: 18ch;
+  font-size: clamp(2rem, 6vw, 4.1rem);
+  line-height: 1.05;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+.intro {
+  max-width: 70ch;
+  color: var(--muted);
+}
+
+.hero-actions {
+  margin-top: 1.4rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.68rem 1.15rem;
+  font-weight: 700;
+  border: 1px solid var(--stroke);
+}
+
+.btn.primary {
+  color: #0f1115;
+  border-color: transparent;
+  background: linear-gradient(90deg, var(--accent), #ffb347);
+}
+
+.btn.ghost {
+  color: var(--text);
+}
+
+.btn.ghost:hover {
+  border-color: var(--accent-2);
+}
+
+.panel {
+  margin-top: 1.2rem;
+  border: 1px solid var(--stroke);
+  border-radius: 16px;
+  background: linear-gradient(140deg, rgba(33, 39, 53, 0.65), rgba(24, 27, 35, 0.8));
+  padding: 1.25rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+.skill-card {
+  border: 1px solid rgba(255, 122, 24, 0.25);
+  border-radius: 12px;
+  background: rgba(15, 17, 21, 0.5);
+  padding: 0.9rem;
+}
+
+.skill-card p {
+  margin-bottom: 0;
+}
+
+.experience-item {
+  border: 1px solid rgba(0, 194, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(15, 17, 21, 0.45);
+  padding: 1rem;
+}
+
+.experience-item + .experience-item {
+  margin-top: 1rem;
+}
+
+.experience-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.experience-head p {
+  color: var(--muted);
+  font-family: "Space Mono", monospace;
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+.project-card {
+  border: 1px solid rgba(255, 122, 24, 0.25);
+  border-radius: 12px;
+  background: rgba(15, 17, 21, 0.6);
+  padding: 1rem;
+}
+
+ul {
+  padding-left: 1.1rem;
+}
+
+a {
+  color: var(--accent-2);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem 2.5rem;
+  color: var(--muted);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 860px) {
+  .site-header {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    padding-top: 2.8rem;
+  }
+
+  .experience-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
