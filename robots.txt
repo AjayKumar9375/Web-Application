@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kaneki.art/sitemap.xml

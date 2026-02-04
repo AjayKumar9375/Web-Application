@@ -21,11 +21,32 @@ body {
   margin: 0;
   font-family: "Archivo", "Segoe UI", sans-serif;
   color: var(--text);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
   background:
     radial-gradient(50rem 30rem at 90% -10%, rgba(0, 194, 255, 0.15), transparent 60%),
     radial-gradient(45rem 35rem at -10% 10%, rgba(255, 122, 24, 0.2), transparent 60%),
     var(--bg);
   line-height: 1.6;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 0.75rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0f1115;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform 200ms ease;
+  z-index: 20;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 .noise {
@@ -73,6 +94,16 @@ nav a {
 
 nav a:hover {
   color: var(--text);
+}
+
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.brand:focus-visible,
+nav a:focus-visible {
+  outline: 3px solid rgba(0, 194, 255, 0.7);
+  outline-offset: 3px;
+  border-radius: 8px;
 }
 
 main {
@@ -248,6 +279,18 @@ footer {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
 }
 
 @media (max-width: 860px) {
