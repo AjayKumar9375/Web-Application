@@ -87,41 +87,106 @@
     </section>
 
     <section id="skills" class="panel reveal" aria-labelledby="skills-title">
-      <h2 id="skills-title">Skills</h2>
+      <h2 id="skills-title">What I Work With</h2>
       <div class="skills-grid">
         <article class="skill-card">
-          <h3>Cloud Platforms</h3>
-          <p>AWS (EC2, IAM, VPC, S3, ECR, EKS, ECS, ALB, CloudWatch)</p>
+          <div class="skill-icon" aria-hidden="true">DK</div>
+          <h3>Docker</h3>
+          <p>Package apps so they run the same everywhere.</p>
         </article>
         <article class="skill-card">
-          <h3>IaC and Configuration</h3>
-          <p>Terraform, Ansible</p>
+          <div class="skill-icon" aria-hidden="true">K8S</div>
+          <h3>Kubernetes</h3>
+          <p>Run and scale containers automatically.</p>
         </article>
         <article class="skill-card">
-          <h3>Containers</h3>
-          <p>Docker, Kubernetes</p>
+          <div class="skill-icon" aria-hidden="true">CI</div>
+          <h3>Jenkins / GitHub Actions</h3>
+          <p>Automate build, test, and deploy.</p>
         </article>
         <article class="skill-card">
-          <h3>Scripting</h3>
-          <p>Python, Bash</p>
+          <div class="skill-icon" aria-hidden="true">IaC</div>
+          <h3>Terraform</h3>
+          <p>Create cloud infrastructure using code.</p>
         </article>
         <article class="skill-card">
-          <h3>Build and Artifacts</h3>
-          <p>Maven, Nexus</p>
-        </article>
-        <article class="skill-card">
-          <h3>Version Control</h3>
-          <p>Git, GitHub</p>
-        </article>
-        <article class="skill-card">
-          <h3>CI/CD</h3>
-          <p>Jenkins, GitHub Actions</p>
-        </article>
-        <article class="skill-card">
-          <h3>Monitoring and Logging</h3>
-          <p>Prometheus, Grafana, ELK Stack</p>
+          <div class="skill-icon" aria-hidden="true">AWS</div>
+          <h3>AWS</h3>
+          <p>Host and scale applications in the cloud.</p>
         </article>
       </div>
+    </section>
+
+    <section class="panel reveal" aria-labelledby="pipeline-title">
+      <h2 id="pipeline-title">How a DevOps Pipeline Works</h2>
+      <p class="panel-lead">
+        When a developer pushes code to Git, a pipeline builds the app, creates a Docker image,
+        deploys it to Kubernetes, and monitors it automatically.
+      </p>
+      <div class="pipeline">
+        <div class="pipeline-step">Developer</div>
+        <div class="pipeline-arrow" aria-hidden="true">-&gt;</div>
+        <div class="pipeline-step">Git</div>
+        <div class="pipeline-arrow" aria-hidden="true">-&gt;</div>
+        <div class="pipeline-step">CI Pipeline</div>
+        <div class="pipeline-arrow" aria-hidden="true">-&gt;</div>
+        <div class="pipeline-step">Docker Image</div>
+        <div class="pipeline-arrow" aria-hidden="true">-&gt;</div>
+        <div class="pipeline-step">Kubernetes</div>
+        <div class="pipeline-arrow" aria-hidden="true">-&gt;</div>
+        <div class="pipeline-step">Monitoring</div>
+      </div>
+    </section>
+
+    <section class="panel reveal" aria-labelledby="sample-project-title">
+      <h2 id="sample-project-title">My Sample DevOps Project</h2>
+      <article class="project-card">
+        <h3>Automated CI/CD for a Web App</h3>
+        <ul class="simple-list">
+          <li>Code stored in GitHub.</li>
+          <li>Jenkins builds and tests the app.</li>
+          <li>Docker creates the image.</li>
+          <li>Kubernetes deploys with zero downtime.</li>
+          <li>Prometheus and Grafana monitor the app.</li>
+        </ul>
+      </article>
+      <p class="note">
+        See more details on GitHub: <a href="#" aria-label="GitHub profile link">Add your GitHub profile link</a>
+      </p>
+    </section>
+
+    <section class="panel reveal" aria-labelledby="concepts-title">
+      <h2 id="concepts-title">DevOps Concepts in Simple Words</h2>
+      <div class="concept-grid">
+        <article class="concept-card">
+          <h3>CI</h3>
+          <p>Automatically testing code after every change.</p>
+        </article>
+        <article class="concept-card">
+          <h3>CD</h3>
+          <p>Automatically deploying tested code.</p>
+        </article>
+        <article class="concept-card">
+          <h3>Container</h3>
+          <p>A lightweight box that contains the app and dependencies.</p>
+        </article>
+        <article class="concept-card">
+          <h3>IaC</h3>
+          <p>Creating servers using code instead of clicking.</p>
+        </article>
+        <article class="concept-card">
+          <h3>Rolling Update</h3>
+          <p>Update the app without downtime.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel reveal" aria-labelledby="why-title">
+      <h2 id="why-title">Why DevOps?</h2>
+      <p class="panel-lead">
+        DevOps helps teams release software faster, safer, and with fewer failures by automating
+        repetitive tasks and improving collaboration.
+      </p>
     </section>
 
     <section id="experience" class="panel reveal" aria-labelledby="experience-title">
@@ -162,7 +227,7 @@
       <h2 id="projects-title">Projects</h2>
       <article class="project-card">
         <h3>AWS EKS and ECR Infrastructure Automation</h3>
-        <ul>
+        <ul class="simple-list">
           <li>Automated AWS infrastructure provisioning using Terraform, including EKS clusters and ECR repositories.</li>
           <li>Designed modular and reusable Terraform configurations for scalable operations.</li>
           <li>Implemented GitHub Actions workflows for Terraform validation, planning, and apply operations.</li>
