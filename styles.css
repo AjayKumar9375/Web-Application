@@ -421,12 +421,17 @@ footer {
 }
 
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.js .reveal {
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 500ms ease, transform 500ms ease;
 }
 
-.reveal.visible {
+.js .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -459,7 +464,7 @@ footer {
     scroll-behavior: auto;
   }
 
-  .reveal {
+  .js .reveal {
     transition: none;
     transform: none;
     opacity: 1;
@@ -469,6 +474,10 @@ footer {
   .hero-content,
   .hero-photo {
     animation: none;
+  }
+
+  .hero-photo {
+    opacity: 1;
   }
 
   .panel,

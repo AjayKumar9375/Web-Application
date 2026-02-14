@@ -1,3 +1,4 @@
+document.documentElement.classList.add("js");
 document.getElementById("year").textContent = new Date().getFullYear();
 
 const revealItems = document.querySelectorAll(".reveal");

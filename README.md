@@ -1,6 +1,6 @@
 ﻿# Ajay Kumar Portfolio
 
-Static portfolio site for `kanekin.art`.
+Static portfolio site for `kaneki.art`.
 
 ## Files
 - `index.html`: content and structure
