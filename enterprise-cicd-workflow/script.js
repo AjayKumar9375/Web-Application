@@ -166,10 +166,11 @@ function openDetails(stepNumber, trigger) {
   document.getElementById("detailTools").textContent = detail.tools;
 
   panel.classList.add("open");
+  panel.scrollTop = 0;
   panel.setAttribute("aria-hidden", "false");
   backdrop.hidden = false;
   document.body.style.overflow = "hidden";
-  closeButton.focus();
+  closeButton.focus({ preventScroll: true });
 }
 
 function closeDetails() {

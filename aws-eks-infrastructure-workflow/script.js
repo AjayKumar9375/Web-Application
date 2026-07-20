@@ -80,10 +80,11 @@ function openDetails(node) {
   document.querySelector("#detailReason").textContent = reason;
   document.querySelector("#detailExample").textContent = example;
   panel.classList.add("open");
+  panel.scrollTop = 0;
   panel.setAttribute("aria-hidden", "false");
   backdrop.hidden = false;
   document.body.style.overflow = "hidden";
-  closeButton.focus();
+  closeButton.focus({ preventScroll: true });
 }
 
 function closeDetails() {
