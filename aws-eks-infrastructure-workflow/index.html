@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive workflow for a Terraform-based AWS EKS infrastructure platform." />
+  <meta name="theme-color" content="#07111d" />
+  <title>AWS EKS Infrastructure Platform</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#workflows">Skip to infrastructure workflows</a>
+
+  <header class="site-header">
+    <a href="../index.html#projects">← Portfolio projects</a>
+    <span><i></i> Infrastructure baseline · ready</span>
+  </header>
+
+  <main>
+    <header class="hero">
+      <p class="eyebrow">Project workflow · Cloud infrastructure</p>
+      <h1>AWS EKS Infrastructure Platform</h1>
+      <p>A Terraform-based AWS EKS platform with private networking, managed node groups, IRSA, Kubernetes add-ons, observability, and separate dev, staging, and production environments.</p>
+      <div class="tech-stack" aria-label="Technology stack">
+        <span>AWS</span><span>Terraform</span><span>EKS</span><span>Kubernetes</span><span>Helm</span><span>VPC</span><span>IAM</span><span>IRSA</span><span>S3</span><span>DynamoDB</span><span>KMS</span><span>CloudWatch</span><span>Prometheus</span><span>Grafana</span><span>Fluent Bit</span><span>ExternalDNS</span><span>ALB Controller</span><span>EBS CSI Driver</span>
+      </div>
+    </header>
+
+    <section class="workflow-section" id="workflows" aria-labelledby="workflow-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Provisioning and runtime flow</p>
+          <h2 id="workflow-title">Infrastructure workflows</h2>
+          <p>Select a node to inspect its architectural purpose and production use.</p>
+        </div>
+        <div class="lane-filters" role="group" aria-label="Filter infrastructure workflow lanes">
+          <button class="active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="state" aria-pressed="false">State</button>
+          <button type="button" data-filter="network" aria-pressed="false">Network</button>
+          <button type="button" data-filter="cluster" aria-pressed="false">EKS</button>
+          <button type="button" data-filter="addons" aria-pressed="false">Add-ons</button>
+          <button type="button" data-filter="operations" aria-pressed="false">Operations</button>
+          <button type="button" data-filter="environments" aria-pressed="false">Environments</button>
+        </div>
+      </div>
+      <div class="workflow-lanes" id="workflowLanes"></div>
+    </section>
+
+    <section class="features" aria-labelledby="features-title">
+      <div class="section-head compact"><div><p class="eyebrow">Production baseline</p><h2 id="features-title">Key features</h2></div></div>
+      <div class="feature-grid">
+        <article><span>01</span><h3>Modular Terraform</h3><p>Reusable modules separate networking, identity, EKS, add-ons, and observability.</p></article>
+        <article><span>02</span><h3>Remote state backend</h3><p>S3 state, DynamoDB locking, and KMS encryption support safe team operations.</p></article>
+        <article><span>03</span><h3>Three-AZ network</h3><p>Public and private subnets distribute platform resources across failure domains.</p></article>
+        <article><span>04</span><h3>Private worker nodes</h3><p>Managed EKS node groups run without direct inbound internet exposure.</p></article>
+        <article><span>05</span><h3>Workload identity</h3><p>IRSA gives Kubernetes service accounts scoped AWS permissions.</p></article>
+        <article><span>06</span><h3>Helm-managed add-ons</h3><p>Controllers, storage, DNS, metrics, and autoscaling use versioned releases.</p></article>
+        <article><span>07</span><h3>CloudWatch logging</h3><p>Control-plane and workload logs support audit, diagnosis, and retention.</p></article>
+        <article><span>08</span><h3>Platform monitoring</h3><p>Prometheus and Grafana expose cluster capacity and workload health.</p></article>
+        <article><span>09</span><h3>Centralized secrets</h3><p>Secrets Manager integrates with Kubernetes through the CSI provider.</p></article>
+        <article><span>10</span><h3>Environment isolation</h3><p>Dev, staging, and production use explicit workspaces and variable sets.</p></article>
+      </div>
+    </section>
+
+    <section class="role" aria-labelledby="role-title">
+      <div><p class="eyebrow">Project ownership</p><h2 id="role-title">My role</h2><p>Designed and implemented the platform as a reusable infrastructure baseline for production Kubernetes workloads.</p></div>
+      <ul>
+        <li>Designed the AWS EKS infrastructure architecture.</li>
+        <li>Created modular Terraform code.</li>
+        <li>Configured remote state, networking, IAM, and security groups.</li>
+        <li>Provisioned the EKS cluster and managed node groups.</li>
+        <li>Integrated Kubernetes add-ons using Helm.</li>
+        <li>Configured observability, logging, and secrets integration.</li>
+        <li>Created deployment, security, and cost documentation.</li>
+      </ul>
+    </section>
+  </main>
+
+  <aside class="detail-panel" id="detailPanel" role="dialog" aria-modal="true" aria-labelledby="detailTitle" aria-hidden="true">
+    <div class="detail-head"><span id="detailLane">NETWORK FOUNDATION</span><button id="closePanel" type="button" aria-label="Close component details">×</button></div>
+    <span class="detail-icon" id="detailIcon" aria-hidden="true">VPC</span>
+    <h2 id="detailTitle"></h2>
+    <p id="detailPurpose"></p>
+    <dl>
+      <div><dt>Why it is used</dt><dd id="detailReason"></dd></div>
+      <div><dt>Production example</dt><dd id="detailExample"></dd></div>
+    </dl>
+  </aside>
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
