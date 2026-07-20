@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive Amazon EKS DevSecOps and GitOps delivery workflow." />
+  <meta name="theme-color" content="#08111d" />
+  <title>Amazon EKS DevSecOps &amp; GitOps Platform Workflow</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#workflow">Skip to workflow</a>
+  <header class="site-bar">
+    <a href="../index.html#projects">← Back to projects</a>
+    <span><i></i> EKS platform · healthy</span>
+  </header>
+
+  <main>
+    <header class="project-header">
+      <p class="kicker">Project workflow · DevSecOps / GitOps</p>
+      <h1>Amazon EKS DevSecOps &amp; GitOps Platform</h1>
+      <p class="lede">A controlled path from Git commit to a secure, observable workload on Amazon EKS—with Git-based promotion and deterministic rollback.</p>
+      <div class="header-meta"><span>Personal project</span><span>DevOps Engineer</span><span>Jan–Apr 2026</span></div>
+    </header>
+
+    <section class="summary-strip" aria-labelledby="summary-title">
+      <div class="section-intro"><p class="kicker">Architecture summary</p><h2 id="summary-title">Delivery path</h2></div>
+      <ol>
+        <li>Developer</li><li>GitHub / GitLab</li><li>Jenkins / Hosted CI</li><li>Tests + gates</li><li>Docker</li><li>Amazon ECR</li><li>GitOps repo</li><li>Argo CD</li><li>Amazon EKS</li><li>Prometheus stack</li>
+      </ol>
+    </section>
+
+    <section class="workflow-section" id="workflow" aria-labelledby="workflow-title">
+      <div class="workflow-head">
+        <div><p class="kicker">Nine-stage control plane</p><h2 id="workflow-title">Project workflow</h2><p>Open a stage for implementation details or run the release simulation.</p></div>
+        <div class="workflow-controls">
+          <fieldset>
+            <legend>Simulation outcome</legend>
+            <label><input type="radio" name="outcome" value="success" checked /><span>Successful deployment</span></label>
+            <label><input type="radio" name="outcome" value="failure" /><span>Security failure</span></label>
+          </fieldset>
+          <div class="button-row"><button class="run-button" id="runWorkflow" type="button">▶ Run workflow</button><button class="reset-button" id="resetWorkflow" type="button">Reset</button></div>
+        </div>
+      </div>
+      <div class="progress"><span id="progressBar"></span></div>
+      <p class="run-status" id="runStatus" aria-live="polite">Ready · choose an outcome and run the workflow</p>
+      <div class="pipeline" id="pipeline"></div>
+    </section>
+
+    <section class="guardrails" aria-labelledby="guardrails-title">
+      <div class="section-intro"><p class="kicker">Enforced controls</p><h2 id="guardrails-title">Platform guardrails</h2></div>
+      <div class="guardrail-grid">
+        <article><span>01</span><h3>Identity</h3><p>OIDC, temporary AWS credentials, IRSA, and EKS Pod Identity remove long-lived secrets.</p></article>
+        <article><span>02</span><h3>Artifact security</h3><p>Non-root containers, immutable tags, vulnerability gates, and KMS-encrypted ECR storage.</p></article>
+        <article><span>03</span><h3>Runtime policy</h3><p>Gatekeeper, NetworkPolicy, probes, limits, PDBs, and least-privilege workload access.</p></article>
+        <article><span>04</span><h3>Recovery</h3><p>Git history, Argo CD revisions, application health, metrics, alerts, and documented rollback.</p></article>
+      </div>
+    </section>
+
+    <section class="project-action" aria-label="Project source code">
+      <div><p class="kicker">Repository</p><h2>Review the implementation</h2><p>Terraform modules, Helm charts, CI pipelines, policies, dashboards, and operational runbooks.</p></div>
+      <a href="https://github.com/AjayKumar9375/eks-devsecops-gitops-platform" target="_blank" rel="noreferrer noopener">View Source Code ↗</a>
+    </section>
+  </main>
+
+  <aside class="detail-panel" id="detailPanel" role="dialog" aria-modal="true" aria-labelledby="detailTitle" aria-hidden="true">
+    <div class="detail-head"><span id="detailNumber">STAGE 01</span><button id="closePanel" type="button" aria-label="Close details">×</button></div>
+    <div class="detail-symbol" id="detailIcon" aria-hidden="true">&lt;/&gt;</div>
+    <p class="detail-phase" id="detailPhase">SOURCE</p><h2 id="detailTitle"></h2><p id="detailDescription"></p>
+    <h3>Implementation</h3><ul id="detailPoints"></ul>
+    <h3>Technologies</h3><div class="detail-tags" id="detailTags"></div>
+  </aside>
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
