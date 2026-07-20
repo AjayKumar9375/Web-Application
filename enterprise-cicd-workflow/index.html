@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive Enterprise CI/CD workflow for automated testing, security scanning, container publishing, and AWS EKS deployments." />
+  <meta name="theme-color" content="#07111f" />
+  <title>Enterprise CI/CD Platform Workflow</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#pipeline">Skip to workflow</a>
+
+  <header class="site-header">
+    <a class="back-link" href="../index.html#projects" aria-label="Back to portfolio projects">
+      <span aria-hidden="true">←</span> Portfolio
+    </a>
+    <div class="header-status"><span class="status-dot"></span> Platform online</div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">DevOps architecture · Interactive case study</p>
+      <h1 id="page-title">Enterprise CI/CD Platform Workflow</h1>
+      <p class="hero-copy">Automated testing, security scanning, image publishing, and Kubernetes deployment on AWS EKS.</p>
+      <div class="architecture-summary" aria-label="Architecture overview">
+        <span>Source</span><b aria-hidden="true">→</b><span>Continuous integration</span><b aria-hidden="true">→</b><span>Security gates</span><b aria-hidden="true">→</b><span>AWS EKS</span><b aria-hidden="true">→</b><span>Observability</span>
+      </div>
+    </section>
+
+    <section class="workflow-shell" id="pipeline" aria-labelledby="workflow-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">End-to-end delivery path</p>
+          <h2 id="workflow-title">Release pipeline</h2>
+          <p>Select any node to inspect its inputs, actions, and outputs.</p>
+        </div>
+        <div class="pipeline-controls">
+          <button class="control-button run-button" id="runPipeline" type="button">
+            <span class="play-icon" aria-hidden="true">▶</span> Run pipeline
+          </button>
+          <button class="control-button" id="resetPipeline" type="button">Reset</button>
+        </div>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Filter workflow steps">
+        <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-button" type="button" data-filter="ci" aria-pressed="false">CI</button>
+        <button class="filter-button" type="button" data-filter="security" aria-pressed="false">Security</button>
+        <button class="filter-button" type="button" data-filter="build" aria-pressed="false">Build</button>
+        <button class="filter-button" type="button" data-filter="deploy" aria-pressed="false">Deploy</button>
+        <button class="filter-button" type="button" data-filter="monitor" aria-pressed="false">Monitor</button>
+      </div>
+
+      <div class="progress-track" aria-label="Pipeline progress">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <p class="progress-label" id="progressLabel" aria-live="polite">Ready to run · 0 of 18 steps</p>
+
+      <div class="pipeline-grid" id="pipelineGrid">
+        <button class="workflow-step" type="button" data-step="1" data-category="ci">
+          <span class="step-number">01</span><span class="step-icon" aria-hidden="true">&lt;/&gt;</span>
+          <span class="step-content"><strong>Push source code</strong><small>GitHub / GitLab</small></span>
+        </button>
+        <button class="workflow-step" type="button" data-step="2" data-category="ci">
+          <span class="step-number">02</span><span class="step-icon" aria-hidden="true">⚡</span>
+          <span class="step-content"><strong>Start CI pipeline</strong><small>Actions · GitLab CI · Jenkins</small></span>
+        </button>
+        <button class="workflow-step" type="button" data-step="3" data-category="ci">
+          <span class="step-number">03</span><span class="step-icon" aria-hidden="true">⇩</span>
+          <span class="step-content"><strong>Checkout source</strong><small>Versioned workspace</small></span>
+        </button>
+        <button class="workflow-step" type="button" data-step="4" data-category="ci">
+          <span class="step-number">04</span><span class="step-icon" aria-hidden="true">✓</span>
+          <span class="step-content"><strong>Run unit tests</strong><small>Fast feedback</small></span>
+        </button>
+        <button class="workflow-step" type="button" data-step="5" data-category="ci">
+          <span class="step-number">05</span><span class="step-icon" aria-hidden="true">⇄</span>
+          <span class="step-content"><strong>Integration tests</strong><small>Service validation</small></span>
+        </button>
+        <button class="workflow-step" type="button" data-step="6" data-category="security">
+          <span class="step-number">06</span><span class="step-icon" aria-hidden="true">◎</span>
+          <span class="step-content"><strong>Code quality gate</strong><small>SonarQube</small></span>
+        </button>
+        <button class="workflow-step" type="button" data-step="7" data-category="security">
+          <span class="step-number">07</span><span class="step-icon" aria-hidden="true">⌁</span>
+          <span class="step-content"><strong>Dependency scan</strong><small>OWASP Dependency-Check</small></span>
+        </button>
+        <button class="workflow-step" type="button" data-step="8" data-category="security">
+          <span class="step-number">08</span><span class="step-icon" aria-hidden="true">⌕</span>
+          <span class="step-content"><strong>Filesystem scan</strong><small>Trivy</small></span>
+        </button>
+        <button class="workflow-step" type="button" data-step="9" data-category="build">
+          <span class="step-number">09</span><span class="step-icon" aria-hidden="true">▣</span>
+          <span class="step-content"><strong>Build Docker image</strong><small>Immutable artifact</small></span>
+        </button>
+        <button class="workflow-step" type="button" data-step="10" data-category="security">
+          <span class="step-number">10</span><span class="step-icon" aria-hidden="true">◆</span>
+          <span class="step-content"><strong>Scan container image</strong><small>Trivy image scan</small></span>
+        </button>
+        <button class="workflow-step" type="button" data-step="11" data-category="build">
+          <span class="step-number">11</span><span class="step-icon" aria-hidden="true">☁</span>
+          <span class="step-content"><strong>Publish image</strong><small>Amazon ECR</small></span>
+        </button>
+        <button class="workflow-step" type="button" data-step="12" data-category="build">
+          <span class="step-number">12</span><span class="step-icon" aria-hidden="true">◫</span>
+          <span class="step-content"><strong>Package Helm chart</strong><small>Versioned release</small></span>
+        </button>
+        <button class="workflow-step approval-step" type="button" data-step="13" data-category="deploy">
+          <span class="step-number">13</span><span class="step-icon" aria-hidden="true">◇</span>
+          <span class="step-content"><strong>Production approval</strong><small>Manual control gate</small></span>
+        </button>
+        <button class="workflow-step" type="button" data-step="14" data-category="deploy">
+          <span class="step-number">14</span><span class="step-icon" aria-hidden="true">☸</span>
+          <span class="step-content"><strong>Deploy to AWS EKS</strong><small>Helm upgrade</small></span>
+        </button>
+        <button class="workflow-step strategy-step" type="button" data-step="15" data-category="deploy">
+          <span class="step-number">15</span><span class="step-icon" aria-hidden="true">⑂</span>
+          <span class="step-content"><strong>Select strategy</strong><small>Rolling · Blue/Green · Canary</small></span>
+        </button>
+        <button class="workflow-step" type="button" data-step="16" data-category="deploy">
+          <span class="step-number">16</span><span class="step-icon" aria-hidden="true">↶</span>
+          <span class="step-content"><strong>Automatic rollback</strong><small>Helm atomic release</small></span>
+        </button>
+        <button class="workflow-step" type="button" data-step="17" data-category="monitor">
+          <span class="step-number">17</span><span class="step-icon" aria-hidden="true">✉</span>
+          <span class="step-content"><strong>Notify stakeholders</strong><small>Slack and email</small></span>
+        </button>
+        <button class="workflow-step" type="button" data-step="18" data-category="monitor">
+          <span class="step-number">18</span><span class="step-icon" aria-hidden="true">⌁</span>
+          <span class="step-content"><strong>Monitor workloads</strong><small>Prometheus and Grafana</small></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="content-section" aria-labelledby="strategies-title">
+      <div class="section-heading compact">
+        <div><p class="section-label">Release orchestration</p><h2 id="strategies-title">Deployment strategies</h2></div>
+      </div>
+      <div class="strategy-grid">
+        <article class="strategy-card">
+          <div class="strategy-visual rolling" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <h3>Rolling deployment</h3>
+          <p>Incrementally replaces pods while maintaining application availability.</p>
+          <dl><div><dt>Risk</dt><dd>Low</dd></div><div><dt>Cost</dt><dd>Low</dd></div><div><dt>Best for</dt><dd>Routine releases</dd></div></dl>
+        </article>
+        <article class="strategy-card">
+          <div class="strategy-visual blue-green" aria-hidden="true"><i></i><i></i><span>⇄</span><i></i><i></i></div>
+          <h3>Blue/Green deployment</h3>
+          <p>Switches traffic between two complete environments for immediate rollback.</p>
+          <dl><div><dt>Risk</dt><dd>Lowest</dd></div><div><dt>Cost</dt><dd>High</dd></div><div><dt>Best for</dt><dd>Critical releases</dd></div></dl>
+        </article>
+        <article class="strategy-card">
+          <div class="strategy-visual canary" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <h3>Canary deployment</h3>
+          <p>Routes a small traffic percentage to the new version before promotion.</p>
+          <dl><div><dt>Risk</dt><dd>Controlled</dd></div><div><dt>Cost</dt><dd>Medium</dd></div><div><dt>Best for</dt><dd>Progressive delivery</dd></div></dl>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section split-section" aria-label="Security and operations">
+      <div class="subsystem-panel security-panel">
+        <p class="section-label">Shift-left controls</p>
+        <h2>Security gates</h2>
+        <div class="gate-list">
+          <article><span class="gate-icon">SQ</span><div><h3>SonarQube</h3><p>Blocks releases that fail code quality, coverage, or maintainability thresholds.</p></div><b>QUALITY</b></article>
+          <article><span class="gate-icon">TR</span><div><h3>Trivy</h3><p>Scans source files and container layers for vulnerabilities and misconfiguration.</p></div><b>SECURITY</b></article>
+          <article><span class="gate-icon">OW</span><div><h3>OWASP Dependency-Check</h3><p>Finds known vulnerabilities in third-party application dependencies.</p></div><b>DEPENDENCIES</b></article>
+        </div>
+      </div>
+
+      <div class="subsystem-panel operations-panel">
+        <p class="section-label">Operational feedback</p>
+        <h2>Monitoring &amp; notifications</h2>
+        <div class="signal-visual" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="operations-grid">
+          <article><strong>Prometheus</strong><small>Metrics collection and alert rules</small></article>
+          <article><strong>Grafana</strong><small>Cluster and release dashboards</small></article>
+          <article><strong>Slack</strong><small>Real-time deployment events</small></article>
+          <article><strong>Email</strong><small>Auditable release summaries</small></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="detail-panel" id="detailPanel" role="dialog" aria-modal="true" aria-labelledby="detailTitle" aria-hidden="true">
+    <div class="detail-panel-head">
+      <span class="detail-step" id="detailStep">STEP 01</span>
+      <button class="close-panel" id="closePanel" type="button" aria-label="Close step details">×</button>
+    </div>
+    <div class="detail-icon" id="detailIcon" aria-hidden="true">&lt;/&gt;</div>
+    <p class="detail-category" id="detailCategory">CI</p>
+    <h2 id="detailTitle">Push source code</h2>
+    <p id="detailDescription"></p>
+    <div class="detail-flow">
+      <div><span>INPUT</span><p id="detailInput"></p></div>
+      <div><span>OUTPUT</span><p id="detailOutput"></p></div>
+    </div>
+    <div class="detail-tools"><span>TOOLS</span><p id="detailTools"></p></div>
+  </aside>
+  <div class="panel-backdrop" id="panelBackdrop" hidden></div>
+
+  <footer>
+    <p>Enterprise CI/CD technology stack</p>
+    <div class="footer-badges" aria-label="Technology stack">
+      <span>GitHub Actions</span><span>GitLab CI</span><span>Jenkins</span><span>Docker</span><span>Kubernetes</span><span>Helm</span><span>SonarQube</span><span>Trivy</span><span>OWASP Dependency-Check</span><span>JFrog Artifactory</span><span>AWS ECR</span><span>AWS EKS</span><span>Prometheus</span><span>Grafana</span><span>Slack</span><span>Email</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
