@@ -24,9 +24,6 @@
   }, { passive: true });
   updateProgress();
 
-  document.body.classList.add("motion-boot");
-  window.addEventListener("pageshow", () => document.body.classList.remove("page-leaving"));
-
   // Stagger suitable cards and workflow lanes as they enter the viewport.
   const entranceSelector = [
     ".project-card", ".skill-card", ".experience-item", ".strategy-card",
@@ -80,21 +77,26 @@
     });
   });
 
-  // Animate same-site page changes. Hash links and modified clicks stay native.
-  document.addEventListener("click", (event) => {
-    const link = event.target.closest("a[href]");
-    if (!link || event.defaultPrevented || event.button !== 0) return;
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    if (link.target === "_blank" || link.hasAttribute("download")) return;
+  // Make the whole portfolio project card open its workflow while preserving
+  // native behavior for links, disclosure controls, and text selection.
+  document.querySelectorAll(".project-card").forEach((card) => {
+    const workflowLink = card.querySelector('a[href*="workflow"]');
+    if (!workflowLink) return;
 
-    const destination = new URL(link.href, window.location.href);
-    const current = new URL(window.location.href);
-    if (destination.origin !== current.origin) return;
-    if (destination.pathname === current.pathname && destination.search === current.search) return;
-    if (reduceMotion) return;
+    card.classList.add("linked-project-card");
+    card.tabIndex = 0;
+    card.setAttribute("aria-label", `Open ${card.querySelector("h3")?.textContent || "project"} workflow`);
 
-    event.preventDefault();
-    document.body.classList.add("page-leaving");
-    window.setTimeout(() => window.location.assign(destination.href), 170);
+    const openWorkflow = () => window.location.assign(workflowLink.href);
+    card.addEventListener("click", (event) => {
+      if (event.target.closest("a, button, summary, details, input, label")) return;
+      if (window.getSelection()?.toString()) return;
+      openWorkflow();
+    });
+    card.addEventListener("keydown", (event) => {
+      if (event.target !== card || !["Enter", " "].includes(event.key)) return;
+      event.preventDefault();
+      openWorkflow();
+    });
   });
 })();
