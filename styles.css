@@ -328,7 +328,113 @@ h3 {
   border-radius: 12px;
   background: rgba(15, 17, 21, 0.6);
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   transition: transform 250ms ease, border-color 250ms ease;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.project-card-featured {
+  grid-column: 1 / -1;
+  border-color: rgba(0, 194, 255, 0.35);
+}
+
+.project-heading {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.project-heading h3 {
+  margin-bottom: 0.45rem;
+}
+
+.project-type,
+.project-date {
+  margin: 0 0 0.35rem;
+  color: var(--accent-2);
+  font-family: "Space Mono", monospace;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.project-date {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.25rem 0 0.85rem;
+}
+
+.tech-list span {
+  padding: 0.2rem 0.5rem;
+  border: 1px solid rgba(0, 194, 255, 0.25);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(0, 194, 255, 0.06);
+  font-size: 0.76rem;
+}
+
+.project-stats {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+  padding: 0;
+  margin: 0.2rem 0 1rem;
+  list-style: none;
+}
+
+.project-stats li {
+  padding: 0.55rem;
+  border-radius: 9px;
+  background: rgba(255, 122, 24, 0.08);
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.project-stats strong {
+  display: block;
+  color: var(--accent);
+  font: 700 1.15rem "Space Mono", monospace;
+}
+
+.project-details {
+  width: 100%;
+  margin-top: auto;
+  border-top: 1px solid var(--stroke);
+  padding-top: 0.7rem;
+}
+
+.project-details summary {
+  color: var(--accent-2);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.project-details ul {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.project-link {
+  margin-top: 0.9rem;
+  padding: 0.45rem 0.8rem;
+  color: var(--text);
+  font-size: 0.86rem;
 }
 
 .panel-lead {
@@ -565,5 +671,22 @@ footer {
   .experience-head {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card-featured {
+    grid-column: auto;
+  }
+
+  .project-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-heading {
+    flex-direction: column;
+    gap: 0;
   }
 }

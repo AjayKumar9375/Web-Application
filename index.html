@@ -8,13 +8,13 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://kaneki.art/" />
   <meta property="og:title" content="Ajay Kumar | DevOps Engineer" />
-  <meta property="og:description" content="Professional summary, skills, experience, projects, and certifications of Ajay Kumar." />
+  <meta property="og:description" content="Professional summary, skills, experience, and cloud-native DevOps projects by Ajay Kumar." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kaneki.art/" />
   <meta property="og:image" content="https://kaneki.art/assets/profile.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ajay Kumar | DevOps Engineer" />
-  <meta name="twitter:description" content="Professional summary, skills, experience, projects, and certifications of Ajay Kumar." />
+  <meta name="twitter:description" content="Professional summary, skills, experience, and cloud-native DevOps projects by Ajay Kumar." />
   <meta name="twitter:image" content="https://kaneki.art/assets/profile.jpg" />
   <meta name="theme-color" content="#0f1115" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -141,23 +141,6 @@
       </div>
     </section>
 
-    <section class="panel reveal" aria-labelledby="sample-project-title">
-      <h2 id="sample-project-title">My Sample DevOps Project</h2>
-      <article class="project-card">
-        <h3>Automated CI/CD for a Web App</h3>
-        <ul class="simple-list">
-          <li>Code stored in GitHub.</li>
-          <li>Jenkins builds and tests the app.</li>
-          <li>Docker creates the image.</li>
-          <li>Kubernetes deploys with zero downtime.</li>
-          <li>Prometheus and Grafana monitor the app.</li>
-        </ul>
-      </article>
-      <p class="note">
-        See more details on GitHub: <a href="https://github.com/AjayKumar9375/EKS-ECR-Terraform.git" aria-label="Visit EKS ECR Terraform GitHub repository">EKS/ECR/Terraform repo</a>
-      </p>
-    </section>
-
     <section class="panel reveal" aria-labelledby="concepts-title">
       <h2 id="concepts-title">DevOps Concepts in Simple Words</h2>
       <div class="concept-grid">
@@ -245,15 +228,132 @@
 
     <section id="projects" class="panel reveal" aria-labelledby="projects-title">
       <h2 id="projects-title">Projects</h2>
-      <article class="project-card">
-        <h3>AWS EKS and ECR Infrastructure Automation</h3>
-        <ul class="simple-list">
-          <li>Automated AWS infrastructure provisioning using Terraform, including EKS clusters and ECR repositories.</li>
-          <li>Designed modular and reusable Terraform configurations for scalable operations.</li>
-          <li>Implemented GitHub Actions workflows for Terraform validation, planning, and apply operations.</li>
-          <li>Enforced cloud security best practices for state isolation and controlled access.</li>
-        </ul>
-      </article>
+      <p class="panel-lead">Production-style platforms covering cloud infrastructure, GitOps, CI/CD, security, observability, and containerized application delivery.</p>
+
+      <div class="projects-grid">
+        <article class="project-card project-card-featured">
+          <div class="project-heading">
+            <div>
+              <p class="project-type">DevOps Engineer</p>
+              <h3>Amazon EKS DevSecOps &amp; GitOps Platform</h3>
+            </div>
+          </div>
+          <p>Designed an Amazon EKS platform using Terraform, Kubernetes, Helm, and Argo CD, with multi-provider CI/CD, automated security gates, autoscaling, centralized secrets, and production monitoring.</p>
+          <ul class="project-stats" aria-label="Project highlights">
+            <li><strong>3</strong> AWS Availability Zones</li>
+            <li><strong>2</strong> GitOps environments</li>
+            <li><strong>3</strong> CI/CD implementations</li>
+            <li><strong>0</strong> long-lived AWS credentials</li>
+          </ul>
+          <div class="tech-list" aria-label="Technologies used">
+            <span>AWS EKS</span><span>Terraform</span><span>Kubernetes</span><span>Helm</span><span>Argo CD</span><span>Karpenter</span><span>Jenkins</span><span>GitHub Actions</span><span>GitLab CI</span><span>Trivy</span><span>Checkov</span><span>Prometheus</span><span>Grafana</span>
+          </div>
+          <details class="project-details">
+            <summary>Key features and architecture</summary>
+            <ul>
+              <li>Provisioned a three-Availability-Zone VPC and EKS cluster with private workers, managed node groups, IAM, IRSA, EKS Pod Identity, and KMS encryption.</li>
+              <li>Configured Karpenter and HPA for node and workload scaling, plus Helm resources with health probes, limits, rolling updates, a Pod Disruption Budget, and NetworkPolicy.</li>
+              <li>Implemented separate development and production GitOps configurations through Argo CD.</li>
+              <li>Built Jenkins, GitHub Actions, and GitLab CI pipelines for tests, Terraform and Helm validation, security scanning, image builds, and ECR publishing.</li>
+              <li>Integrated Trivy, Checkov, Snyk, SonarQube, OWASP Dependency-Check, OPA Gatekeeper, and Sentinel security controls.</li>
+              <li>Used OIDC-based AWS authentication and centralized secrets through External Secrets, AWS Secrets Manager, and a Vault example.</li>
+              <li>Added Prometheus, Grafana, and Alertmanager monitoring plus an operational verification, troubleshooting, and rollback runbook.</li>
+            </ul>
+          </details>
+          <a class="btn project-link" href="https://github.com/AjayKumar9375/eks-devsecops-gitops-platform" target="_blank" rel="noreferrer noopener">View source code <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-heading">
+            <div>
+              <p class="project-type">DevOps Engineer / CI/CD Architect</p>
+              <h3>Enterprise CI/CD Platform on AWS EKS</h3>
+            </div>
+          </div>
+          <p>A production-style delivery platform that automates testing, security scanning, Docker builds, ECR publishing, and Helm deployments to AWS EKS.</p>
+          <div class="tech-list" aria-label="Technologies used">
+            <span>GitHub Actions</span><span>Jenkins</span><span>GitLab</span><span>Docker</span><span>Helm</span><span>AWS EKS</span><span>SonarQube</span><span>Trivy</span><span>Grafana</span>
+          </div>
+          <details class="project-details">
+            <summary>Key features and outcomes</summary>
+            <ul>
+              <li>Runs unit and integration tests, SonarQube quality gates, Trivy scans, and OWASP Dependency-Check before publishing images.</li>
+              <li>Supports rolling, blue/green, and canary deployments, production approvals, and automatic rollback through Helm atomic upgrades.</li>
+              <li>Adds Slack and email notifications, Prometheus alert rules, Grafana dashboards, and reusable pipeline templates.</li>
+              <li>Reduced manual release steps and improved deployment safety, security coverage, rollback readiness, and monitoring visibility.</li>
+            </ul>
+          </details>
+          <a class="btn project-link" href="https://github.com/AjayKumar9375/enterprise-cicd-platform-aws-eks" target="_blank" rel="noreferrer noopener">View source code <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-heading">
+            <div>
+              <p class="project-type">Kubernetes Observability</p>
+              <h3>Production Kubernetes Monitoring Platform</h3>
+            </div>
+          </div>
+          <p>Built a Helm-deployable observability platform providing real-time cluster and application metrics, centralized logs, distributed traces, dashboards, and alerts.</p>
+          <div class="tech-list" aria-label="Technologies used">
+            <span>Kubernetes</span><span>Helm</span><span>Prometheus</span><span>Grafana</span><span>Loki</span><span>Tempo</span><span>Fluent Bit</span><span>Alertmanager</span>
+          </div>
+          <details class="project-details">
+            <summary>Key features and responsibilities</summary>
+            <ul>
+              <li>Designed the architecture and Helm umbrella chart with production values and persistent storage for the observability components.</li>
+              <li>Built Grafana dashboards for cluster, node, workload, log, and trace visibility.</li>
+              <li>Configured Prometheus rules and Slack/email Alertmanager routing for resource, workload, network, logging, and tracing failures.</li>
+              <li>Documented installation, customization, validation, upgrades, rollback, and troubleshooting, and validated the chart with Helm lint and template rendering.</li>
+            </ul>
+          </details>
+          <a class="btn project-link" href="https://github.com/AjayKumar9375/production-kubernetes-monitoring" target="_blank" rel="noreferrer noopener">View source code <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-heading">
+            <div>
+              <p class="project-type">Senior Cloud Architect &amp; DevOps Engineer</p>
+              <h3>Production-Grade AWS EKS Infrastructure with Terraform</h3>
+            </div>
+          </div>
+          <p>Designed a reusable AWS EKS baseline with modular Terraform, secure networking, remote state, private worker nodes, autoscaling, add-ons, observability, and separate environment configurations.</p>
+          <div class="tech-list" aria-label="Technologies used">
+            <span>AWS</span><span>EKS</span><span>Terraform</span><span>Helm</span><span>IAM / IRSA</span><span>VPC</span><span>CloudWatch</span><span>Prometheus</span><span>Grafana</span>
+          </div>
+          <details class="project-details">
+            <summary>Key features and outcomes</summary>
+            <ul>
+              <li>Created reusable modules, S3 remote state with DynamoDB locking, and a three-AZ VPC with public and private subnets.</li>
+              <li>Configured private managed node groups, autoscaling, least-privilege IRSA, EBS CSI, AWS Load Balancer Controller, and ExternalDNS.</li>
+              <li>Integrated Secrets Manager, CloudWatch, Fluent Bit, Prometheus, and Grafana.</li>
+              <li>Delivered separate development, staging, and production configurations with security, cost, architecture, and deployment guidance.</li>
+            </ul>
+          </details>
+          <a class="btn project-link" href="https://github.com/AjayKumar9375/aws-eks-infrastructure" target="_blank" rel="noreferrer noopener">View source code <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-heading">
+            <div>
+              <p class="project-type">Application Delivery · CI/CD</p>
+              <h3>Dockerized Microservices Deployment</h3>
+            </div>
+          </div>
+          <p>Built and deployed a microservices application with a FastAPI backend, nginx frontend, PostgreSQL, and Redis, supporting both Docker Compose and Kubernetes delivery workflows.</p>
+          <div class="tech-list" aria-label="Technologies used">
+            <span>FastAPI</span><span>PostgreSQL</span><span>Redis</span><span>Docker Compose</span><span>Jenkins</span><span>SonarQube</span><span>Kubernetes</span><span>Helm</span><span>AWS EKS</span>
+          </div>
+          <details class="project-details">
+            <summary>Key features and responsibilities</summary>
+            <ul>
+              <li>Containerized the frontend and backend and configured local orchestration with PostgreSQL and Redis through Docker Compose.</li>
+              <li>Created Kubernetes Deployments, Services, ConfigMaps, Secrets, Ingress resources, and a repeatable Helm chart.</li>
+              <li>Built a Jenkins pipeline for validation, tests, SonarQube analysis, image publishing, Kubernetes deployment, and verification evidence.</li>
+              <li>Documented practical deployment and troubleshooting workflows for Docker Hub, AWS ECR, Kubernetes, and AWS EKS.</li>
+            </ul>
+          </details>
+        </article>
+      </div>
     </section>
 
     <section class="panel reveal" aria-labelledby="education-title">
